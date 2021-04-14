@@ -76,4 +76,16 @@ public class Order {
         price = productsPrices;
         return price;
     }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+                "idOrder=" + idOrder +
+                ", products=" + products +
+                ", idClient=" + idClient +
+                ", price=" + price +
+                ", date=" + date +
+                ", state='" + state + '\'' +
+                '}';
+    }
 }

@@ -50,8 +50,6 @@ public class Invoice {
         return "Invoice{" +
                 "idInvoice=" + idInvoice +
                 ", order=" + order +
-                ", description='" + description + '\'' +
-                ", iva=" + iva +
                 '}';
     }
 
