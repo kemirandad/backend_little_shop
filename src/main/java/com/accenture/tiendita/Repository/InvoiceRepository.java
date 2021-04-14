@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class InvoiceRepository {
 
-    private static int invoiceCounter = 4;
+    private static int invoiceCounter = 3;
 
     private static List<Invoice> invoices = new ArrayList<>();
 
@@ -19,7 +19,7 @@ public class InvoiceRepository {
         invoices.add(new Invoice(1, new OrderRepository().getOrderById(1)));
         invoices.add(new Invoice(2, new OrderRepository().getOrderById(2)));
         invoices.add(new Invoice(3, new OrderRepository().getOrderById(3)));
-        invoices.add(new Invoice(4, new OrderRepository().getOrderById(4)));
+
     }
 
     public List<Invoice> getAllInvoices(){

@@ -14,7 +14,7 @@ import java.util.List;
 
 @Component
 public class OrderRepository {
-    private static Integer counterOrder = 4;
+    private static Integer counterOrder = 3;
 
     public final Integer TWELVEHOURS = 43200000;
     public final Integer FIVEHOURS = 18000000;
@@ -28,7 +28,6 @@ public class OrderRepository {
         orders.add(new Order(1, new ProductRepository().findAll(), 1, new Date(), "ACCEPTED"));
         orders.add(new Order(2, new ProductRepository().findAll(), 1, new Date(), "ACCEPTED"));
         orders.add(new Order(3, new ProductRepository().findAll(), 2, new Date(), "ACCEPTED"));
-        orders.add(new Order(4, new ProductRepository().findAll(), 2, new Date(), "ACCEPTED"));
 
         deleteDeliveryFormOrders();
     }
