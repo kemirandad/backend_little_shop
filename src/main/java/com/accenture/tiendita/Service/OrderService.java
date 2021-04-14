@@ -49,7 +49,7 @@ public class OrderService {
         return orderService.addProductToOrder(idClient, idOrder, idProduct);
     }
 
-    @DeleteMapping("/clients/{idClient}/orders/{irOrder}")
+    @DeleteMapping("/clients/{idClient}/orders/{idOrder}")
     public void deleteOrderByClient(@PathVariable int idClient, @PathVariable int idOrder){
         Order order = orderService.deleteOrderById(idClient, idOrder);
         if (order == null){
