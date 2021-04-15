@@ -22,10 +22,19 @@ public class InvoiceRepository {
 
     }
 
+    /**
+     * Return all the invoices in static list
+     * @return list invoices
+     */
     public List<Invoice> getAllInvoices(){
         return invoices;
     }
 
+    /**
+     * Return one invoice from static list invoices
+     * @param id
+     * @return invoice in list
+     */
     public Invoice getInvoiceById(int id){
         for (Invoice invoice:invoices) {
             if(invoice.getIdInvoice() == id){
@@ -35,6 +44,11 @@ public class InvoiceRepository {
         return null;
     }
 
+    /**
+     * Add one invoice in list invoices
+     * @param invoice
+     * @return void
+     */
     public Invoice addInvoice(Invoice invoice) {
         if (invoice.getIdInvoice() == null){
             invoice.setIdInvoice(++invoiceCounter);
@@ -43,6 +57,11 @@ public class InvoiceRepository {
         return invoice;
     }
 
+    /**
+     * Update invoice already exist in list
+     * @param idOrder
+     * @param order
+     */
     public void updateInvoice(int idOrder, Order order) {
         for (int i = 0; i < invoices.size(); i++) {
             if (invoices.get(i).getOrder().getIdOrder() == idOrder){
@@ -53,6 +72,11 @@ public class InvoiceRepository {
         }
     }
 
+    /**
+     * Deletes an invoice from a given id
+     * @param idOrder
+     * @return void
+     */
     public Invoice deleteInvoiceByIdOrder(int idOrder) {
         Iterator<Invoice> iterator = invoices.iterator();
         while (iterator.hasNext()){

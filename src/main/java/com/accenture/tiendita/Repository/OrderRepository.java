@@ -32,6 +32,9 @@ public class OrderRepository {
         deleteDeliveryFormOrders();
     }
 
+    /**
+     * Method for eliminate cost delivery from order, if total price is over 100000
+     */
     private static void deleteDeliveryFormOrders() {
         for (int i = 0; i < orders.size(); i++) {
             if (orders.get(i).getPrice() > 100000){
@@ -47,10 +50,19 @@ public class OrderRepository {
         }
     }
 
+    /**
+     * Returns all orders in static list orders
+     * @return orders list
+     */
     public List<Order> getAllOrders(){
         return orders;
     }
 
+    /**
+     * Returns all orders from a idClient given
+     * @param idClient
+     * @return orders list
+     */
     public List<Order> getAllOrderByClientId(int idClient){
         List<Order> ordersByClient = new ArrayList<>();
         for (Order order: orders) {
@@ -60,7 +72,13 @@ public class OrderRepository {
         }
         return ordersByClient;
     }
-    
+
+    /**
+     * Adds a order by client in list static order
+     * @param idClient
+     * @param order
+     * @return void
+     */
     public Order addOrderToClient(int idClient, Order order){
         if (order.getIdOrder().equals(null)) {
             order.setIdOrder(++counterOrder);
@@ -71,6 +89,11 @@ public class OrderRepository {
             return order;
     }
 
+    /**
+     * Returns an only order from an id given
+     * @param id
+     * @return order else null
+     */
     public Order getOrderById(int id){
         for (Order order: orders) {
             if (order.getIdOrder() == id){
@@ -80,6 +103,11 @@ public class OrderRepository {
         return null;
     }
 
+    /**
+     * Adds a order in list static order
+     * @param order
+     * @return voic
+     */
     public Order addOrder(Order order){
         if (order.getIdOrder() == null){
             order.setIdOrder(++counterOrder);
@@ -100,6 +128,13 @@ public class OrderRepository {
         return order;
     }
 
+    /**
+     * Updates an order from all values ir new order
+     * @param idClient
+     * @param order
+     * @param idOrder
+     * @return void
+     */
     public Order updateOrder(int idClient, Order order, int idOrder){
 
         Order newOrder = new Order(idOrder, order.getProducts(), idClient, new Date(), order.getState());
@@ -119,6 +154,11 @@ public class OrderRepository {
         return null;
     }
 
+    /**
+     * Verifies if the difference between orderDate and actualDate (must be over five hours)
+     * @param orderDate
+     * @return bool
+     */
     private boolean isUpdateTime(Date orderDate) {
         Date actualDate = new Date();
         if (actualDate.getTime() - orderDate.getTime() < FIVEHOURS){
@@ -127,6 +167,12 @@ public class OrderRepository {
         return false;
     }
 
+    /**
+     * Deletes one order from an id given
+     * @param idClient
+     * @param idOrder
+     * @return void
+     */
     public Order deleteOrderById(int idClient, int idOrder){
         Iterator<Order> iterator = orders.iterator();
         while (iterator.hasNext()){
@@ -148,6 +194,11 @@ public class OrderRepository {
         return null;
     }
 
+    /**
+     * Compares the time different between actualDate and orderDate
+     * @param orderDate
+     * @return bool
+     */
     private boolean isCancelledTime(Date orderDate) {
         Date actualDate = new Date();
         if (actualDate.getTime() - orderDate.getTime() < TWELVEHOURS){
@@ -156,6 +207,11 @@ public class OrderRepository {
         return false;
     }
 
+    /**
+     * Delete delivery from an order, if this is over 100000
+     * @param order
+     * @return void
+     */
     private Order deleteDelivery(Order order) {
         if (order.getPrice() > 100000){
             Iterator<Product> iterator = order.getProducts().iterator();
@@ -170,6 +226,13 @@ public class OrderRepository {
         return order;
     }
 
+    /**
+     * Adds a new product to order already exist
+     * @param idClient
+     * @param idOrder
+     * @param idProduct
+     * @return void
+     */
     public Order addProductToOrder(int idClient, int idOrder, int idProduct){
         ProductRepository products = new ProductRepository();
         Product product = products.findById(idProduct);

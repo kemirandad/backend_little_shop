@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class TestClientRepository extends TestCase {
 
     private static ClientRepository clientRepository;
-    private static Client client = new Client(3, "Dorias", "Av. Siempre Viva", 5645);
+    private final static Client client = new Client(3, "Dorias", "Av. Siempre Viva", 5645);
 
 
     private void root(){

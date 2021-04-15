@@ -1,0 +1,50 @@
+curl --location --request POST 'http://localhost:9191/clients' \
+--header 'Content-Type: application/json' \
+--data-raw '    {
+        "idClient": 3,
+        "name": "user_three",
+        "address": "carrera 11 #14-08",
+        "idNumber": 1
+    }'
+
+curl --location --request GET 'http://localhost:9191/clients'
+
+curl --location --request PUT 'http://localhost:9191/clients/1/orders/1' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+        "idOrder": 1,
+        "products": [
+            {
+                "idProduct": 1,
+                "name": "Chair",
+                "price": 80000.0
+            },
+            {
+                "idProduct": 2,
+                "name": "Table",
+                "price": 100000.0
+            },
+            {
+                "idProduct": 3,
+                "name": "Board",
+                "price": 120000.0
+            },
+            {
+                "idProduct": 4,
+                "name": "Toys Box",
+                "price": 60000.0
+            },
+            {
+                "idProduct": 2,
+                "name": "Table",
+                "price": 100000.0
+            }
+        ],
+        "idClient": 1,
+        "price": 360000.0,
+        "date": "2021-04-14T02:47:41.478+00:00",
+        "state": "ACCEPTED"
+    }'
+
+curl --location --request DELETE 'http://localhost:9191/clients/{id}' \
+--data-raw ''

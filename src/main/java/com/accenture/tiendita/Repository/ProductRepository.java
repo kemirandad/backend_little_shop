@@ -22,10 +22,19 @@ public class ProductRepository {
         products.add(new Product(4, "Toys Box", 60000.00));
     }
 
+    /**
+     * Returns all the products in static list
+     * @return products list
+     */
     public List<Product> findAll(){
         return products;
     }
 
+    /**
+     * Adds a product in static list product
+     * @param product
+     * @return void
+     */
     public Product addProduct(Product product){
         if (product.getIdProduct().equals(null)){
             product.setIdProduct(++productCounter);
@@ -34,6 +43,11 @@ public class ProductRepository {
         return product;
     }
 
+    /**
+     * Returns a product from product list
+     * @param id
+     * @return product
+     */
     public Product findById(int id){
         for (Product product: products) {
             if (product.getIdProduct() == id){
@@ -43,6 +57,11 @@ public class ProductRepository {
         return null;
     }
 
+    /**
+     * Deletes a product from a given id
+     * @param id
+     * @return void
+     */
     public Product deleteProductById(int id){
         Iterator<Product> iterator = products.iterator();
         while (iterator.hasNext()){
