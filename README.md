@@ -73,8 +73,6 @@ Create one product
     }
 ```
 
-_Finaliza con un ejemplo de cómo obtener datos del sistema o como usarlos para una pequeña demo_
-
 ## Ejecutando las pruebas ⚙️
 
 _Pruebas unitarias con JUnit 3_
